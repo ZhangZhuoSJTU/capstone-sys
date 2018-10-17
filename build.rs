@@ -106,7 +106,7 @@ fn build_capstone_cc() {
 
     cc::Build::new()
         .files(files)
-        .include(format!("{}/{}", CAPSTONE_DIR, "include"))
+        .include(format!("{}/{}/{}", CAPSTONE_DIR, "include", "capstone"))
         .define("CAPSTONE_X86_ATT_DISABLE_NO", None)
         .define("CAPSTONE_DIET_NO", None)
         .define("CAPSTONE_X86_REDUCE_NO", None)
@@ -209,7 +209,7 @@ fn main() {
 
     build_capstone_cc();
 
-    header_search_paths.push([CAPSTONE_DIR, "include"].iter().collect());
+    header_search_paths.push([CAPSTONE_DIR, "include", "capstone"].iter().collect());
     link_type = Some(LinkType::Static);
 
     match link_type.expect("Must specify link type") {
