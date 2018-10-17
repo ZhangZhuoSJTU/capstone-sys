@@ -155,7 +155,8 @@ fn write_bindgen_bindings(
     out_path: PathBuf,
 ) {
     let mut builder = bindgen::Builder::default()
-        .rust_target(bindgen::RustTarget::Nightly)
+        .rust_target(bindgen::RustTarget::Stable_1_19)
+        // .rust_target(bindgen::RustTarget::Nightly)
         .header(
             find_capstone_header(header_search_paths, "capstone.h")
                 .expect("Could not find header")
