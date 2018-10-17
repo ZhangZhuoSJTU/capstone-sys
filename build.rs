@@ -106,7 +106,8 @@ fn build_capstone_cc() {
 
     cc::Build::new()
         .files(files)
-        .include(format!("{}/{}/{}", CAPSTONE_DIR, "include", "capstone"))
+        // .include(format!("{}/{}/{}", CAPSTONE_DIR, "include", "capstone"))
+        .include(format!("{}/{}", CAPSTONE_DIR, "include"))
         .define("CAPSTONE_X86_ATT_DISABLE_NO", None)
         .define("CAPSTONE_DIET_NO", None)
         .define("CAPSTONE_X86_REDUCE_NO", None)
